@@ -122,7 +122,7 @@ class Achievements {
 
 		#if MODS_ALLOWED //Based on WeekData.hx
 		var disabledMods:Array<String> = [];
-		var modsListPath:String = 'modsList.txt';
+		var modsListPath:String = SUtil.getPath() + 'modsList.txt';
 		var directories:Array<String> = [Paths.mods()];
 		if(FileSystem.exists(modsListPath))
 		{
