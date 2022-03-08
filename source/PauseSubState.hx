@@ -127,7 +127,14 @@ class PauseSubState extends MusicBeatSubstate
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
                 #if android
-                addVirtualPad(FULL, A);
+                if (PlayState.chartingMode)
+                {
+                        addVirtualPad(FULL, A);
+                }
+                else
+                {
+                        addVirtualPad(UP_DOWN, A);
+                }
                 addPadCamera();
                 #end
 	}
@@ -246,7 +253,8 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
                                 case 'Chart Editor':
-			                LoadingState.loadAndSwitchState(new editors.ChartingState());
+		                        MusicBeatState.switchState(new editors.ChartingState());
+		                        PlayState.chartingMode = true;
 				case "Exit to menu":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
