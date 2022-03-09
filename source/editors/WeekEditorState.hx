@@ -177,6 +177,7 @@ class WeekEditorState extends MusicBeatState
 		tab_group.name = "Week";
 		
 		songsInputText = new FlxUIInputText(10, 30, 200, '', 8);
+		songsInputText.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
 		blockPressWhileTypingOn.push(songsInputText);
 
 		opponentInputText = new FlxUIInputText(10, songsInputText.y + 40, 70, '', 8);
